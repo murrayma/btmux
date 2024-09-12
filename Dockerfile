@@ -3,11 +3,11 @@ FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-ENV LANG en_US.utf8
+ENV LANG=en_US.UTF-8
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y gcc libevent-dev libevent-2.1-7 libdbi-dev make g++
+RUN apt-get install -y gcc libevent-dev libevent-2.1-7 libdbi-dev make g++ build-essential subversion
 
 RUN mkdir -p /opt/btmux/
 
